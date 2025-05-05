@@ -1,0 +1,136 @@
+.settings-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.settings-container h2 {
+  margin-bottom: 2rem;
+  color: #333;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.5rem;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+}
+
+.profile-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 1.5rem;
+  border: 2px solid #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.user-info h3 {
+  margin: 0 0 0.5rem 0;
+  color: #333;
+}
+
+.user-info p {
+  margin: 0;
+  color: #666;
+}
+
+.settings-section {
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.settings-section h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: #555;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.sign-out-btn {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 0.6rem 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.sign-out-btn:hover {
+  background-color: #e53935;
+}
+
+.sign-out-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.alexa-connect-btn {
+  display: inline-block;
+  background-color: #5e82f6;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  padding: 0.6rem 1.2rem;
+  transition: background-color 0.2s;
+}
+
+.alexa-connect-btn:hover {
+  background-color: #4a6de5;
+}
+
+.integration-description {
+  color: #666;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+.preference-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.preference-item:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.preference-item label {
+  font-weight: 500;
+  color: #444;
+}
+
+.preference-item select {
+  padding: 0.4rem 0.6rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+@media (max-width: 600px) {
+  .user-profile {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .profile-image {
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+} 

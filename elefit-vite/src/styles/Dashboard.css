@@ -1,0 +1,300 @@
+/* Dashboard Styles */
+.dashboard {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.dashboard-header {
+  width: 100%;
+ 
+  color: white;
+  padding: 1.25rem 2rem;
+  display: flex;
+  justify-content: flex-end;
+  
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.dashboard-header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  animation: slideInFromLeft 0.5s ease-out;
+  color: white;
+  letter-spacing: 0.5px;
+}
+
+@keyframes slideInFromLeft {
+  from {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.dashboard-nav {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  padding: 1rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 4.5rem;
+  z-index: 99;
+}
+
+.dashboard-nav button {
+  margin: 0 0.8rem;
+  background-color: transparent;
+  color: var(--primary);
+  border: 1px solid var(--primary);
+  padding: 0.6rem 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+  font-weight: 500;
+}
+
+.dashboard-nav button:hover {
+  background-color: rgba(30, 58, 138, 0.05);
+  transform: translateY(-2px);
+}
+
+.dashboard-nav button.active {
+  background-color: var(--primary);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  border-color: transparent;
+}
+
+.dashboard-content {
+  flex: 1;
+  padding: 2rem;
+  width: 100%;
+  animation: fadeInUp 0.5s ease-out;
+  background: var(--background);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dashboard-footer {
+  width: 100%;
+  text-align: center;
+  padding: 1.5rem;
+  background-color: var(--primary-dark);
+  color: white;
+  margin-top: auto;
+}
+
+.progress-section {
+  width: 100%;
+  background-color: white;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 2rem;
+  border-top: 3px solid var(--primary);
+}
+
+.progress-section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.stat-card {
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.stat-card:nth-child(1) {
+  border-top: 3px solid var(--primary);
+}
+
+.stat-card:nth-child(2) {
+  border-top: 3px solid var(--accent);
+}
+
+.stat-card:nth-child(3) {
+  border-top: 3px solid var(--primary-light);
+}
+
+.stat-card:nth-child(4) {
+  border-top: 3px solid var(--success);
+}
+
+.stat-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0.5rem 0;
+}
+
+.stat-card:nth-child(1) .stat-value {
+  color: var(--primary);
+}
+
+.stat-card:nth-child(2) .stat-value {
+  color: var(--accent);
+}
+
+.stat-card:nth-child(3) .stat-value {
+  color: var(--primary-light);
+}
+
+.stat-card:nth-child(4) .stat-value {
+  color: var(--success);
+}
+
+.recent-activities {
+  width: 100%;
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-left: 3px solid var(--accent);
+  animation: slideInFromRight 0.5s ease-out 0.2s both;
+}
+
+.activities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.activity-card {
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  border-left: 2px solid var(--primary);
+}
+
+.activity-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.activity-card:nth-child(2) {
+  border-left-color: var(--accent);
+}
+
+.activity-card:nth-child(3) {
+  border-left-color: var(--primary-light);
+}
+
+.activity-card:nth-child(4) {
+  border-left-color: var(--success);
+}
+
+@keyframes slideInFromRight {
+  from {
+    transform: translateX(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Add the logout button styles */
+.dashboard-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.settings-link,
+.logout-button {
+  padding: 8px 15px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.settings-link {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.settings-link:hover {
+  background-color: #e0e0e0;
+}
+
+.logout-button {
+  background-color: #ff5252;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.logout-button:hover {
+  background-color: #ff3838;
+}
+
+.logout-button:disabled {
+  background-color: #ffb0b0;
+  cursor: not-allowed;
+}
+
+.refresh-button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 8px 15px;
+  border-radius: 4px;
+  font-weight: 500;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.refresh-button:hover {
+  background-color: #45a049;
+}
+
+.refresh-button:disabled {
+  background-color: #a5d6a7;
+  cursor: not-allowed;
+} 
