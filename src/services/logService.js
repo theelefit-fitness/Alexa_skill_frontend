@@ -1,5 +1,6 @@
 import { collection, addDoc, getDocs, query, orderBy, limit, where, doc, deleteDoc, getDoc, setDoc } from 'firebase/firestore';
 import { db, auth, getCurrentUser } from './firebase';
+import { apiPost, apiGet } from './apiService';
 
 /**
  * Get the currently logged in user or throw an error
@@ -22,6 +23,26 @@ export const logWorkout = async (workoutData) => {
   try {
     const user = getAuthenticatedUser();
     const userEmail = user.email;
+    
+    // First, log to the backend API
+    try {
+      await apiPost('/api/log-workout', {
+        workoutType: workoutData.workoutType,
+        activityName: workoutData.activityName,
+        duration: workoutData.duration,
+        distance: workoutData.distance,
+        sets: workoutData.sets,
+        reps: workoutData.reps,
+        timestamp: workoutData.timestamp instanceof Date 
+          ? workoutData.timestamp.toISOString().split('T')[0]
+          : workoutData.timestamp,
+        source: workoutData.source || 'web'
+      });
+    } catch (apiError) {
+      console.warn("API logging failed, falling back to Firestore only:", apiError);
+    }
+    
+    // Then also log directly to Firestore for redundancy
     const userDocRef = doc(db, "users", userEmail);
     
     // Check if user document exists
@@ -66,6 +87,22 @@ export const logMeal = async (mealData) => {
   try {
     const user = getAuthenticatedUser();
     const userEmail = user.email;
+    
+    // First, log to the backend API
+    try {
+      await apiPost('/api/log-meal', {
+        mealType: mealData.mealType,
+        foodItems: mealData.foodItems,
+        timestamp: mealData.timestamp instanceof Date 
+          ? mealData.timestamp.toISOString().split('T')[0] 
+          : mealData.timestamp,
+        source: mealData.source || 'web'
+      });
+    } catch (apiError) {
+      console.warn("API logging failed, falling back to Firestore only:", apiError);
+    }
+    
+    // Then also log directly to Firestore for redundancy
     const userDocRef = doc(db, "users", userEmail);
     
     // Check if user document exists
