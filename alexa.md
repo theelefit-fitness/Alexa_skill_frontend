@@ -1,6 +1,6 @@
 # Alexa Integration for EleFit Fitness Tracker
 
-This guide documents how to integrate Amazon Alexa with EleFit Fitness Tracker, allowing users to log workouts and meals using voice commands.
+
 
 ## Table of Contents
 1. [Alexa Skill Setup](#alexa-skill-setup)
